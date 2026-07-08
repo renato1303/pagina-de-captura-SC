@@ -1,0 +1,6 @@
+{
+  "name": "Será Cacau",
+  "description": "Landing Page premium institucional para a Será Cacau, apresentando o cacau 100% puro e de origem agroflorestal para empórios, concept stores, cafeterias, hotéis e distribuidores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
