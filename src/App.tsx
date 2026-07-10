@@ -28,7 +28,7 @@ import ConversationalForm from "./components/ConversationalForm";
 
 // Path to custom generated images
 const HERO_IMAGE = "/images/gotas.jpeg";
-const BAHIA_ORIGIN_IMAGE = "/src/assets/images/bahia_agroforestry_origin_1783533957886.jpg";
+const BAHIA_ORIGIN_IMAGE = "/images/IMG_8578.jpg";
 const LIFESTYLE_IMAGE = "/images/gotas02.jpeg";
 
 export default function App() {
@@ -52,7 +52,7 @@ export default function App() {
       num: "02",
       title: "Dimensionamento do portfólio ideal",
       shortDesc: "quais linhas fazem sentido agora (gotas, barras, revenda) e quais não.",
-      detail: "Evite capital parado. Calculamos o mix exato de SKUs (como nossas gotas de preparo culinário de 200g e barras de consumo por impulso) dimensionado especificamente para o fluxo de clientes e ticket médio da sua casa.",
+      detail: "Evite capital parado. Calculamos o mix exato de SKUs (como nossas gotas de preparo culinário de 210g e barras de consumo por impulso) dimensionado especificamente para o fluxo de clientes e ticket médio da sua casa.",
       pill: "Gôndola Inteligente"
     },
     {
@@ -263,7 +263,7 @@ export default function App() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 size={14} className="text-brand-accent" />
-                  <span>base agroflorestal</span>
+                  <span>Cultivado em sistema cabruca</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 size={14} className="text-brand-support" />
@@ -314,7 +314,6 @@ export default function App() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5 space-y-4"
             >
-              <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">O Cenário Atual</span>
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
                 A sua gôndola parece a do concorrente. E o cliente passa reto.
               </h2>
@@ -375,9 +374,6 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-black/10" />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-md border border-brand-border/40 text-[9px] font-mono uppercase tracking-wider text-brand-accent shadow-sm">
-                  Sustentabilidade Rastreável
-                </div>
               </div>
             </motion.div>
 
@@ -389,8 +385,6 @@ export default function App() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
               className="lg:col-span-7 space-y-8 text-left"
             >
-              <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">A Mudança de Hábito</span>
-              
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-[1.15] tracking-tight font-light">
                 A vida além do café não é tendência passageira. É a próxima categoria.
               </h2>
@@ -430,17 +424,12 @@ export default function App() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto text-center space-y-4 mb-16 md:mb-20"
           >
-            <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">Diagnóstico de Prateleira</span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
               O que você recebe na Análise Estratégica de Curadoria & Giro
             </h2>
             <p className="text-brand-muted text-base md:text-lg font-light leading-relaxed font-sans max-w-2xl mx-auto">
               Não é uma reunião de venda com pressão. É um diagnóstico da sua operação conduzido pelo nosso time, você sai dela com clareza, mesmo que a gente nem chegue a falar de fechar pedido. Na conversa você recebe:
             </p>
-            <div className="inline-flex items-center gap-1.5 text-xs text-brand-accent font-mono uppercase tracking-wider bg-brand-accent/5 px-3 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping" />
-              Clique nos cards para revelar insights detalhados
-            </div>
           </motion.div>
 
           {/* Grid 2x2 of the Value items */}
@@ -467,9 +456,6 @@ export default function App() {
                       <div className="w-10 h-10 rounded-xl bg-brand-bg-sec flex items-center justify-center text-brand-accent font-mono text-sm font-bold border border-brand-border/40">
                         {card.num}
                       </div>
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-brand-accent bg-brand-accent/5 px-2.5 py-1 rounded-md">
-                        {card.pill}
-                      </span>
                     </div>
 
                     <h3 className="font-serif text-xl text-brand-dark font-medium leading-tight group-hover:text-brand-accent transition-colors">
@@ -542,18 +528,16 @@ export default function App() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 space-y-8 text-left"
             >
-              <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">Nossa História & Manifestação</span>
-              
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
                 Por que a Será, e não mais uma marca bonita de prateleira
               </h2>
 
               <div className="space-y-6 text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed">
                 <p>
-                  A Será nasceu da inquietação de um casal, Madlen, alemã e formada em administração, e Clark, brasileiro, que se mudou para a Bahia para responder uma pergunta simples: por que os benefícios reais do cacau 100% ficaram presos a um nicho pequeno e caro?
+                  A Será nasceu da inquietação de sua fundadora, Madeleine, alemã e formada em administração, que se mudou para a Bahia para responder uma pergunta simples: por que os benefícios reais do cacau 100% ficaram presos a um nicho pequeno e caro?
                 </p>
                 <p className="border-l-2 border-brand-accent/50 pl-6 my-4 italic text-brand-dark font-serif font-light">
-                  Trabalhamos com cacau 100% puro, sem adição de nada, single-origin, de base agroflorestal, com origem que você consegue rastrear e defender internamente.
+                  Trabalhamos com cacau 100% puro, sem adição de nada, single-origin, cultivado em sistema cabruca, com origem que você consegue rastrear e defender internamente.
                 </p>
                 <p>
                   É esse conjunto, produto honesto + história verdadeira + rastreabilidade, que faz o cliente perguntar, comentar e voltar. Porque no fim, a sua casa não vende produto: vende decisão e curadoria. E é exatamente por isso que a gente seleciona com quem trabalha.
@@ -563,12 +547,12 @@ export default function App() {
               {/* Data numbers / credentials Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-brand-border/80">
                 <div className="space-y-1">
-                  <span className="block text-3xl font-serif text-brand-accent font-light">180+</span>
-                  <span className="block text-xs text-brand-muted font-sans">Lojas parceiras em todo o país</span>
+                  <span className="block text-3xl font-serif text-brand-accent font-light">Tree-to-Bar</span>
+                  <span className="block text-xs text-brand-muted font-sans">Rastreabilidade da árvore à xícara</span>
                 </div>
                 <div className="space-y-1">
                   <span className="block text-3xl font-serif text-brand-accent font-light">100%</span>
-                  <span className="block text-xs text-brand-muted font-sans">Agroflorestal Sul da Bahia</span>
+                  <span className="block text-xs text-brand-muted font-sans">Cabruca Sul da Bahia</span>
                 </div>
                 <div className="space-y-1">
                   <span className="block text-3xl font-serif text-brand-accent font-light">Zero</span>
@@ -612,7 +596,6 @@ export default function App() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-2xl mx-auto text-center space-y-4 mb-16"
           >
-            <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">Critérios de Admissão</span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
               Essa análise é para você se…
             </h2>
@@ -672,7 +655,7 @@ export default function App() {
                   Não é para você se busca o menor preço a qualquer custo, ou não tem interesse real em levar cacau 100% de verdade para a sua casa. Reservamos poucos horários por semana e preferimos usá-los com quem realmente quer construir isso.
                 </p>
                 <p className="text-xs text-brand-muted bg-brand-bg-sec/80 p-4 rounded-lg border border-brand-border/60 leading-relaxed">
-                  * Nossa produção é artesanal de base agroflorestal controlada na Bahia. Prezamos pela parceria e integridade comercial em detrimento do volume desenfreado.
+                  * Nossa produção é artesanal e cultivada em sistema cabruca controlado na Bahia. Prezamos pela parceria e integridade comercial em detrimento do volume desenfreado.
                 </p>
               </div>
             </motion.div>
@@ -694,7 +677,6 @@ export default function App() {
           >
             
             <div className="space-y-3">
-              <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">Garantia e Tranquilidade</span>
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
                 Sem custo. Sem compromisso. Com clareza garantida.
               </h2>
@@ -731,7 +713,6 @@ export default function App() {
           
           {/* Header */}
           <div className="text-center space-y-4 mb-16">
-            <span className="text-brand-accent font-mono text-xs uppercase tracking-widest font-semibold block">Dúvidas Frequentes</span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-dark font-light tracking-tight">
               Perguntas Frequentes (FAQ)
             </h2>
