@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowRight, 
@@ -18,8 +18,6 @@ import {
   DollarSign, 
   FileText, 
   HelpCircle, 
-  Menu, 
-  X,
   Coffee,
   CheckCircle2,
   AlertCircle
@@ -27,15 +25,13 @@ import {
 import ConversationalForm from "./components/ConversationalForm";
 
 // Path to custom generated images
+const BRAND_LOGO = "/images/logo_sera.png";
 const HERO_IMAGE = "/images/gotas.jpeg";
 const BAHIA_ORIGIN_IMAGE = "/images/IMG_8578.jpg";
 const LIFESTYLE_IMAGE = "/images/gotas02.jpeg";
 
 export default function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   const analysisCards = [
@@ -73,121 +69,46 @@ export default function App() {
     }
   ];
 
-  // Monitor scroll for header background
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const triggerCTA = () => {
-    window.open("https://responda.seracacau.com.br", "_blank", "noopener,noreferrer");
-  };
+    // Captura parâmetros existentes na URL atual (como utm de campanhas, gclid, etc.)
+    const currentParams = new URLSearchParams(window.location.search);
+    
+    // Configura os parâmetros de identificação da página de parceria B2B
+    const targetUrl = new URL("https://responda.seracacau.com.br");
+    targetUrl.searchParams.set("utm_source", currentParams.get("utm_source") || "lp_b2b");
+    targetUrl.searchParams.set("utm_medium", currentParams.get("utm_medium") || "cta_parceria");
+    targetUrl.searchParams.set("utm_campaign", currentParams.get("utm_campaign") || "parceria_b2b");
+    targetUrl.searchParams.set("origem", "pagina_parceria_b2b");
 
-  const toggleFaq = (index: number) => {
-    setActiveFaq(activeFaq === index ? null : index);
+    // Repassa quaisquer outros parâmetros presentes para rastreamento completo
+    currentParams.forEach((value, key) => {
+      if (!targetUrl.searchParams.has(key)) {
+        targetUrl.searchParams.set(key, value);
+      }
+    });
+
+    window.open(targetUrl.toString(), "_blank", "noopener,noreferrer");
   };
 
   return (
     <div className="min-h-screen bg-white text-brand-dark selection:bg-brand-support selection:text-brand-dark font-sans antialiased overflow-x-hidden">
       <div className="grain-overlay" />
-      
-      {/* HEADER / NAVIGATION */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled 
-            ? "bg-white/70 backdrop-blur-md border-b border-brand-border/40 py-4 shadow-sm" 
-            : "bg-white/40 backdrop-blur-sm py-6"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo / Brand */}
-          <a href="#" className="flex items-center">
-            <span className="font-serif text-2xl tracking-[0.2em] text-brand-dark font-semibold leading-none">SERÁ CACAU</span>
+
+      {/* CABEÇALHO / HEADER COM LOGO */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border/50 py-3.5 md:py-4 transition-all">
+        <div className="max-w-7xl mx-auto px-6 flex items-center">
+          <a href="#" className="flex items-center group" aria-label="Será Cacau">
+            <img 
+              src={BRAND_LOGO} 
+              alt="Será Cacau" 
+              className="h-10 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
+            />
           </a>
-
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-10 text-xs tracking-wider uppercase font-medium text-brand-muted">
-            <a href="#problema" className="hover:text-brand-accent transition-colors">O Problema</a>
-            <a href="#virada" className="hover:text-brand-accent transition-colors">A Categoria</a>
-            <a href="#oferta" className="hover:text-brand-accent transition-colors">A Análise</a>
-            <a href="#autoridade" className="hover:text-brand-accent transition-colors">A Origem</a>
-            <a href="#faq" className="hover:text-brand-accent transition-colors">FAQ</a>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-brand-dark hover:text-brand-accent transition-colors cursor-pointer"
-            aria-label="Abrir Menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </header>
 
-      {/* MOBILE SIDEBAR */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black z-40 md:hidden"
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white border-l border-brand-border z-50 p-8 flex flex-col justify-between md:hidden"
-            >
-              <div className="space-y-8">
-                <div className="flex items-center justify-between border-b border-brand-border pb-6">
-                  <span className="font-serif text-xl tracking-[0.2em] text-brand-dark font-semibold">SERÁ CACAU</span>
-                  <button onClick={() => setMobileMenuOpen(false)} className="p-1 cursor-pointer">
-                    <X size={20} />
-                  </button>
-                </div>
-
-                <nav className="flex flex-col space-y-6 text-sm uppercase tracking-wider font-semibold text-brand-muted">
-                  <a href="#problema" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-accent transition-colors">O Problema</a>
-                  <a href="#virada" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-accent transition-colors">A Categoria</a>
-                  <a href="#oferta" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-accent transition-colors">A Análise</a>
-                  <a href="#autoridade" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-accent transition-colors">A Origem</a>
-                  <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-accent transition-colors">FAQ</a>
-                </nav>
-              </div>
-
-              <div className="space-y-4">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    triggerCTA();
-                  }}
-                  className="w-full py-4 bg-brand-dark text-white font-medium rounded-full text-center hover:bg-brand-accent transition-all cursor-pointer shadow-md"
-                >
-                  Quero minha análise estratégica
-                </button>
-                <p className="text-center text-[10px] text-brand-muted font-mono uppercase tracking-widest">
-                  Bahia · Cacau 100% Puro
-                </p>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
       {/* DOBRA 1: PROMESSA + CTA (HERO SECTION) */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-white" id="hero">
+      <section className="relative pt-10 pb-20 md:pt-14 md:pb-28 bg-white" id="hero">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -231,7 +152,7 @@ export default function App() {
                     onClick={triggerCTA}
                     className="group relative px-8 py-4 bg-brand-dark text-white font-medium rounded-full text-base transition-all duration-300 hover:bg-brand-accent hover:scale-[1.01] shadow-md hover:shadow-lg cursor-pointer inline-flex items-center justify-center space-x-3"
                   >
-                    <span>Quero minha análise estratégica</span>
+                    <span>Quero me tornar parceiro</span>
                     <ArrowRight size={18} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
                   </button>
                 </div>
@@ -337,16 +258,6 @@ export default function App() {
               <p>
                 A pergunta é se a sua casa vai ser a que oferece a resposta, ou a que assistiu o concorrente oferecer primeiro.
               </p>
-              
-              <div className="pt-6">
-                <button
-                  onClick={triggerCTA}
-                  className="inline-flex items-center space-x-2 text-xs uppercase font-semibold text-brand-accent hover:text-brand-dark tracking-widest transition-colors cursor-pointer group"
-                >
-                  <span>Análise de Mix Cortesia</span>
-                  <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
             </motion.div>
 
           </div>
@@ -403,7 +314,7 @@ export default function App() {
                   onClick={triggerCTA}
                   className="w-full sm:w-auto px-8 py-3.5 bg-brand-dark text-white text-sm font-semibold rounded-full hover:bg-brand-accent transition-all duration-300 text-center cursor-pointer shadow"
                 >
-                  Garantir posicionamento antecipado
+                  Quero ser parceiro
                 </button>
               </div>
             </motion.div>
@@ -491,25 +402,6 @@ export default function App() {
                 </motion.div>
               );
             })}
-          </div>
-
-          {/* Microcopy materials alert */}
-          <div className="mt-12 bg-white border border-brand-border rounded-2xl p-6 md:p-8 max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center space-x-1.5 bg-brand-bg-sec px-2.5 py-1 rounded-full border border-brand-border text-[10px] font-mono text-brand-accent font-semibold uppercase">
-                Bônus de Aplicação
-              </div>
-              <p className="text-brand-dark text-sm md:text-base font-medium font-sans">
-                E depois da reunião, você ainda leva três materiais gratuitos: o Dossiê da Marca Será, a Calculadora de Margem & Giro e o Kit Equipe de Balcão , seus para usar, listando conosco ou não.
-              </p>
-            </div>
-            
-            <button
-              onClick={triggerCTA}
-              className="flex-shrink-0 w-full md:w-auto px-6 py-3.5 bg-brand-dark text-white font-medium rounded-full text-xs uppercase tracking-wider text-center hover:bg-brand-accent transition-all duration-300 cursor-pointer shadow-sm"
-            >
-              Agendar e Levar Materiais
-            </button>
           </div>
 
         </div>
@@ -691,7 +583,7 @@ export default function App() {
                 onClick={triggerCTA}
                 className="w-full py-4 px-8 bg-brand-dark text-white font-medium text-base rounded-full hover:bg-brand-accent transition-all duration-300 shadow-md cursor-pointer inline-flex items-center justify-center space-x-3"
               >
-                <span>Garantir minha vaga na análise estratégica</span>
+                <span>Inscreva-se para se tornar um parceiro</span>
                 <ArrowRight size={18} />
               </button>
               
@@ -707,152 +599,18 @@ export default function App() {
         </div>
       </section>
 
-      {/* FAQ SECTION (MATADORES DE OBJEÇÃO) */}
-      <section className="relative py-24 bg-brand-bg-sec" id="faq">
-        <div className="max-w-4xl mx-auto px-6">
-          
-          {/* Header */}
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-dark font-light tracking-tight">
-              Perguntas Frequentes (FAQ)
-            </h2>
-            <p className="text-brand-muted text-sm font-sans">
-              Esclareça suas principais dúvidas sobre o diagnóstico de curadoria.
-            </p>
-          </div>
-
-          {/* Accordion List */}
-          <div className="space-y-4 max-w-3xl mx-auto">
-            
-            {/* FAQ 1 */}
-            <div className="bg-white border border-brand-border rounded-xl overflow-hidden transition-all duration-200">
-              <button
-                onClick={() => toggleFaq(1)}
-                className="w-full py-5 px-6 text-left flex items-center justify-between font-serif text-lg text-brand-dark hover:text-brand-accent transition-colors font-medium cursor-pointer"
-              >
-                <span>"Não estou abrindo novas listagens agora."</span>
-                <ChevronDown 
-                  size={18} 
-                  className={`text-brand-muted transform transition-transform duration-300 ${activeFaq === 1 ? "rotate-180" : ""}`} 
-                />
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {activeFaq === 1 && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="px-6 pb-5 pt-1 text-sm text-brand-muted font-sans leading-relaxed border-t border-brand-border/40 bg-brand-bg-sec/30">
-                      Tudo bem , a análise não pede que você liste nada. É um diagnóstico da sua curadoria; o que fizer com ele é decisão sua.
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* FAQ 2 */}
-            <div className="bg-white border border-brand-border rounded-xl overflow-hidden transition-all duration-200">
-              <button
-                onClick={() => toggleFaq(2)}
-                className="w-full py-5 px-6 text-left flex items-center justify-between font-serif text-lg text-brand-dark hover:text-brand-accent transition-colors font-medium cursor-pointer"
-              >
-                <span>"É pago?"</span>
-                <ChevronDown 
-                  size={18} 
-                  className={`text-brand-muted transform transition-transform duration-300 ${activeFaq === 2 ? "rotate-180" : ""}`} 
-                />
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {activeFaq === 2 && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="px-6 pb-5 pt-1 text-sm text-brand-muted font-sans leading-relaxed border-t border-brand-border/40 bg-brand-bg-sec/30">
-                      Não. A reunião e os três materiais são gratuitos.
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* FAQ 3 */}
-            <div className="bg-white border border-brand-border rounded-xl overflow-hidden transition-all duration-200">
-              <button
-                onClick={() => toggleFaq(3)}
-                className="w-full py-5 px-6 text-left flex items-center justify-between font-serif text-lg text-brand-dark hover:text-brand-accent transition-colors font-medium cursor-pointer"
-              >
-                <span>"Marca pequena consegue entregar em escala?"</span>
-                <ChevronDown 
-                  size={18} 
-                  className={`text-brand-muted transform transition-transform duration-300 ${activeFaq === 3 ? "rotate-180" : ""}`} 
-                />
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {activeFaq === 3 && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="px-6 pb-5 pt-1 text-sm text-brand-muted font-sans leading-relaxed border-t border-brand-border/40 bg-brand-bg-sec/30">
-                      É parte do que a gente mapeia na conversa: dimensionamos o portfólio ao seu volume, sem prometer o que não sustenta.
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* FAQ 4 */}
-            <div className="bg-white border border-brand-border rounded-xl overflow-hidden transition-all duration-200">
-              <button
-                onClick={() => toggleFaq(4)}
-                className="w-full py-5 px-6 text-left flex items-center justify-between font-serif text-lg text-brand-dark hover:text-brand-accent transition-colors font-medium cursor-pointer"
-              >
-                <span>"Quanto tempo dura?"</span>
-                <ChevronDown 
-                  size={18} 
-                  className={`text-brand-muted transform transition-transform duration-300 ${activeFaq === 4 ? "rotate-180" : ""}`} 
-                />
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {activeFaq === 4 && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="px-6 pb-5 pt-1 text-sm text-brand-muted font-sans leading-relaxed border-t border-brand-border/40 bg-brand-bg-sec/30">
-                      Cerca de 30–40 minutos, online.
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       {/* FOOTER */}
       <footer className="bg-white border-t border-brand-border py-16 md:py-20 text-brand-muted">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
           
           <div className="space-y-4 md:col-span-2">
-            <div className="flex flex-col">
-              <span className="font-serif text-xl tracking-[0.2em] text-brand-dark font-semibold">SERÁ CACAU</span>
-              <span className="font-sans text-[8px] tracking-[0.4em] text-brand-accent uppercase pl-0.5 mt-0.5 font-medium">ORIGEM AGROFLORESTAL</span>
+            <div className="flex flex-col items-start">
+              <img 
+                src={BRAND_LOGO} 
+                alt="Será Cacau" 
+                className="h-9 w-auto object-contain mb-2" 
+              />
+              <span className="font-sans text-[8px] tracking-[0.4em] text-brand-accent uppercase pl-0.5 font-medium">ORIGEM AGROFLORESTAL</span>
             </div>
             <p className="text-sm font-sans max-w-sm leading-relaxed">
               Curadoria de cacau de alta pureza e origem controlada no Sul da Bahia. Criamos pontes entre a conservação agroflorestal da Mata Atlântica e os empórios mais sofisticados do Brasil.
