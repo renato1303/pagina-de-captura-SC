@@ -20,7 +20,8 @@ import {
   HelpCircle, 
   Coffee,
   CheckCircle2,
-  AlertCircle
+  Mail,
+  Phone
 } from "lucide-react";
 import ConversationalForm from "./components/ConversationalForm";
 
@@ -38,34 +39,34 @@ export default function App() {
     {
       id: 1,
       num: "01",
-      title: "Diagnóstico do seu mix atual",
-      shortDesc: "onde estão as oportunidades reais de giro, margem e diferenciação na sua prateleira, hoje.",
-      detail: "Mapeamos o comportamento do consumidor na sua região para identificar se o seu espaço está perdendo clientes premium para canais concorrentes por falta de um cacau funcional autêntico. Analisamos pontos cegos na gôndola atual.",
-      pill: "Gargalos de Giro"
+      title: "Diagnóstico de Mix & Giro",
+      shortDesc: "Mapeamento de oportunidades de margem, giro e diferenciação na sua prateleira.",
+      detail: "Identificamos onde sua gôndola pode capturar clientes premium que buscam opções funcionais e hoje não encontram um produto à altura.",
+      pill: "Giro & Gôndola"
     },
     {
       id: 2,
       num: "02",
-      title: "Dimensionamento do portfólio ideal",
-      shortDesc: "quais linhas fazem sentido agora (gotas, barras, revenda) e quais não.",
-      detail: "Evite capital parado. Calculamos o mix exato de SKUs (como nossas gotas de preparo culinário de 210g e barras de consumo por impulso) dimensionado especificamente para o fluxo de clientes e ticket médio da sua casa.",
-      pill: "Gôndola Inteligente"
+      title: "Portfólio Ideal por Canal",
+      shortDesc: "Seleção dos SKUs mais adequados ao seu perfil (gotas culinárias 210g, barras e doses).",
+      detail: "Dimensionamos a composição ideal para elevar o ticket médio da sua casa sem imobilizar capital em estoque de baixa saída.",
+      pill: "Mix Estratégico"
     },
     {
       id: 3,
       num: "03",
-      title: "Plano de ação personalizado",
-      shortDesc: "como introduzir o cacau na prática: exposição no PDV, precificação, narrativa de venda e treinamento de equipe.",
-      detail: "Roteiro prático de comunicação visual para seu PDV e um micro-treinamento de 5 minutos para que sua equipe saiba responder às perguntas dos clientes sobre o cacau puro de maneira elegante e convincente.",
-      pill: "Treinamento & PDV"
+      title: "Ativação no Ponto de Venda",
+      shortDesc: "Posicionamento de gôndola, tabela de precificação e guia para a equipe de balcão.",
+      detail: "Roteiro prático com recomendações de exposição e argumentos simples para que sua equipe encante e converta clientes no balcão.",
+      pill: "PDV & Equipe"
     },
     {
       id: 4,
       num: "04",
-      title: "Leitura de margem & giro",
-      shortDesc: "quanto o produto pode representar de retorno na sua operação, a partir do seu ticket e do seu volume.",
-      detail: "Apresentamos simulações reais de rentabilidade, demonstrando cenários de faturamento com margens excelentes (muitas vezes superiores a 40%) e o prazo estimado para o giro completo do primeiro lote.",
-      pill: "Estudo de Markup"
+      title: "Projeção de Margem & Retorno",
+      shortDesc: "Simulação de faturamento, margens atrativas e previsão realista de reposição.",
+      detail: "Apresentamos cenários comerciais claros com margens acima da média do setor e previsão de giro para o primeiro lote.",
+      pill: "Rentabilidade"
     }
   ];
 
@@ -120,24 +121,24 @@ export default function App() {
                 transition={{ duration: 0.6 }}
                 className="inline-flex"
               >
-                <span className="text-brand-accent bg-brand-bg-sec border border-brand-border px-4 py-2 rounded-full text-xs md:text-sm font-sans font-medium leading-normal tracking-wide shadow-sm">
-                  Para empórios, concept stores, cafeterias, hotéis e distribuidores que querem uma curadoria que vende sozinha
+                <span className="text-brand-accent bg-brand-bg-sec border border-brand-border px-4 py-1.5 rounded-full text-xs md:text-sm font-sans font-medium tracking-wide shadow-sm">
+                  Parcerias B2B · Empórios, Cafeterias, Hotéis e Boutiques
                 </span>
               </motion.div>
 
               <h1 
                 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-dark leading-[1.1] tracking-tight font-light"
               >
-                Tenha na prateleira o produto que o cliente pergunta, comenta, e volta pra comprar.
+                Tenha na prateleira o produto que o cliente pergunta, comenta e volta para comprar.
               </h1>
 
               <motion.p 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-brand-muted text-lg md:text-xl font-light leading-relaxed max-w-2xl font-sans"
+                className="text-brand-muted text-base md:text-lg font-light leading-relaxed max-w-2xl font-sans"
               >
-                Numa análise estratégica gratuita, nosso time de curadoria olha o seu mix atual e te mostra, com número na mesa, como o cacau 100% da Será pode entrar como o SKU que diferencia a sua casa , surfando a maior virada de hábito da década: a vida além do café.
+                Cacau 100% puro da Bahia com alta margem e rotatividade. Diferencie sua gôndola e atenda a maior virada de hábito de consumo da década: a vida além do café.
               </motion.p>
 
               {/* Action and supporting elements */}
@@ -145,7 +146,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.6, delay: 0.45 }}
-                className="space-y-4 pt-2"
+                className="space-y-3 pt-2"
               >
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                   <button
@@ -159,7 +160,7 @@ export default function App() {
                 
                 <p className="text-xs text-brand-muted pl-1 font-sans flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-support animate-pulse"></span>
-                  Gratuita e sem compromisso · vagas limitadas por semana
+                  Conversa objetiva e sem compromisso comercial
                 </p>
               </motion.div>
 
@@ -168,27 +169,23 @@ export default function App() {
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="pt-8 border-t border-brand-border/80 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-brand-muted font-mono"
+                className="pt-6 border-t border-brand-border/80 flex flex-wrap items-center gap-y-2.5 gap-x-5 text-xs text-brand-muted font-mono"
               >
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1.5">
                   <CheckCircle2 size={14} className="text-brand-accent" />
                   <span>Cacau 100% puro</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1.5">
                   <CheckCircle2 size={14} className="text-brand-accent" />
-                  <span>single-origin</span>
+                  <span>Single-origin Bahia</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1.5">
                   <CheckCircle2 size={14} className="text-brand-accent" />
-                  <span>origem rastreável</span>
+                  <span>Manejo Cabruca</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 size={14} className="text-brand-accent" />
-                  <span>Cultivado em sistema cabruca</span>
-                </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1.5">
                   <CheckCircle2 size={14} className="text-brand-support" />
-                  <span>manejo agroflorestal & origem controlada</span>
+                  <span>Rastreabilidade de lote</span>
                 </div>
               </motion.div>
             </div>
@@ -223,7 +220,7 @@ export default function App() {
       </section>
 
       {/* DOBRA 2: O PROBLEMA (AGITAÇÃO) */}
-      <section className="relative py-24 md:py-32 bg-brand-bg-sec" id="problema">
+      <section className="relative py-20 md:py-28 bg-brand-bg-sec" id="problema">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
@@ -236,7 +233,7 @@ export default function App() {
               className="lg:col-span-5 space-y-4"
             >
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
-                A sua gôndola parece a do concorrente. E o cliente passa reto.
+                Gôndolas iguais. Clientes passando direto.
               </h2>
               <div className="w-16 h-[1px] bg-brand-support mt-6"></div>
             </motion.div>
@@ -250,13 +247,13 @@ export default function App() {
               className="lg:col-span-7 space-y-6 text-brand-muted text-base md:text-lg leading-relaxed font-sans font-light"
             >
               <p>
-                Você já sentiu isso: os mesmos três produtos giram, nada novo prende atenção, e a próxima marca que te oferecem é bonita, mas sem história, sem origem verificável, sem nada que justifique tirar um SKU da prateleira pra colocar ela.
+                Os mesmos produtos disputam espaço por centavos, nada novo retém o olhar e marcas sem história real não justificam o espaço que ocupam na sua prateleira.
               </p>
-              <p className="border-l-2 border-brand-support/40 pl-6 my-6 italic text-brand-dark font-serif font-light text-lg md:text-xl">
-                Enquanto isso, o comportamento do seu cliente mudou. Ele lê rótulo, pergunta a procedência, e está ativamente procurando uma alternativa ao café, clareza e energia sem o ciclo de ansiedade. Essa demanda já está na sua porta.
+              <p className="border-l-2 border-brand-support/50 pl-6 my-4 italic text-brand-dark font-serif font-light text-lg md:text-xl">
+                Enquanto isso, seu público busca ativamente alternativas limpas de energia e foco — sem a ansiedade ou o desgaste do excesso de café.
               </p>
-              <p>
-                A pergunta é se a sua casa vai ser a que oferece a resposta, ou a que assistiu o concorrente oferecer primeiro.
+              <p className="text-brand-dark font-medium">
+                A pergunta é direta: sua casa vai liderar essa resposta ou assistir o concorrente sair na frente?
               </p>
             </motion.div>
 
@@ -265,7 +262,7 @@ export default function App() {
       </section>
 
       {/* DOBRA 3: A VIRADA (POR QUE AGORA) */}
-      <section className="relative py-24 md:py-32 bg-white" id="virada">
+      <section className="relative py-20 md:py-28 bg-white" id="virada">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -294,22 +291,22 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="lg:col-span-7 space-y-8 text-left"
+              className="lg:col-span-7 space-y-6 text-left"
             >
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-[1.15] tracking-tight font-light">
-                A vida além do café não é tendência passageira. É a próxima categoria.
+                A vida além do café não é modismo. É a próxima grande categoria.
               </h2>
 
-              <div className="space-y-6 text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed">
+              <div className="space-y-4 text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed">
                 <p>
-                  O mesmo movimento que criou espaço para o café de especialidade, para o vinho natural e para o azeite com origem está chegando ao cacau. Só que aqui existe uma diferença: o cacau 100% puro ainda não tem um dono claro na cabeça do consumidor. Está preso entre o "achocolatado" de supermercado e a bolha cerimonial cara e nichada.
+                  O mesmo movimento que consolidou o café especial, os vinhos naturais e os azeites de terroir está chegando ao cacau puro. O mercado estava dividido entre ultraprocessados industriais e produtos inacessíveis.
                 </p>
                 <p className="text-brand-dark font-medium">
-                  Esse é o espaço que a Será ocupa, e que a sua casa pode ocupar junto. Um alimento de verdade, honesto, com uma narrativa que se comunica sozinha na prateleira. Quem entra cedo numa categoria assim não vende um produto: constrói a reputação de ter curado a tendência antes de todo mundo.
+                  A Será ocupa o centro: cacau 100% puro, nobre e para consumo diário. Quem entra cedo constrói reputação de curadoria e fideliza o cliente antes de todo mundo.
                 </p>
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
                 <button
                   onClick={triggerCTA}
                   className="w-full sm:w-auto px-8 py-3.5 bg-brand-dark text-white text-sm font-semibold rounded-full hover:bg-brand-accent transition-all duration-300 text-center cursor-pointer shadow"
@@ -324,7 +321,7 @@ export default function App() {
       </section>
 
       {/* DOBRA 4: A OFERTA (VALOR DA ANÁLISE ESTRATÉGICA) */}
-      <section className="relative py-24 md:py-32 bg-brand-bg-sec border-t border-b border-brand-border/60" id="oferta">
+      <section className="relative py-20 md:py-28 bg-brand-bg-sec border-t border-b border-brand-border/60" id="oferta">
         <div className="max-w-7xl mx-auto px-6">
           
           {/* Header */}
@@ -333,13 +330,13 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl mx-auto text-center space-y-4 mb-16 md:mb-20"
+            className="max-w-3xl mx-auto text-center space-y-4 mb-14 md:mb-16"
           >
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
-              O que você recebe na Análise Estratégica de Curadoria & Giro
+              O que avaliamos no diagnóstico de parceria
             </h2>
             <p className="text-brand-muted text-base md:text-lg font-light leading-relaxed font-sans max-w-2xl mx-auto">
-              Não é uma reunião de venda com pressão. É um diagnóstico da sua operação conduzido pelo nosso time, você sai dela com clareza, mesmo que a gente nem chegue a falar de fechar pedido. Na conversa você recebe:
+              Uma conversa estratégica de 20 minutos com nossa curadoria para entender a sinergia com a sua casa:
             </p>
           </motion.div>
 
@@ -356,17 +353,20 @@ export default function App() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => setActiveCard(isActive ? null : card.id)}
-                  className={`relative p-8 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between group ${
+                  className={`relative p-7 md:p-8 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between group ${
                     isActive 
                       ? "bg-white border-brand-accent shadow-md ring-1 ring-brand-accent/20" 
-                      : "bg-white/60 backdrop-blur-md border-brand-border/80 hover:border-brand-accent/40 hover:bg-white/90 shadow-sm"
+                      : "bg-white/70 backdrop-blur-md border-brand-border/80 hover:border-brand-accent/40 hover:bg-white shadow-sm"
                   }`}
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3.5">
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-brand-bg-sec flex items-center justify-center text-brand-accent font-mono text-sm font-bold border border-brand-border/40">
+                      <div className="w-9 h-9 rounded-xl bg-brand-bg-sec flex items-center justify-center text-brand-accent font-mono text-xs font-bold border border-brand-border/40">
                         {card.num}
                       </div>
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-brand-accent/80 font-medium">
+                        {card.pill}
+                      </span>
                     </div>
 
                     <h3 className="font-serif text-xl text-brand-dark font-medium leading-tight group-hover:text-brand-accent transition-colors">
@@ -385,18 +385,18 @@ export default function App() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden pt-4 border-t border-brand-border/40 mt-4 text-xs font-sans text-brand-dark leading-relaxed space-y-2"
+                          className="overflow-hidden pt-3 border-t border-brand-border/40 mt-3 text-xs font-sans text-brand-dark leading-relaxed space-y-1.5"
                         >
-                          <p className="font-semibold text-brand-accent uppercase tracking-wider font-mono text-[10px]">Insight Estratégico da Reunião:</p>
-                          <p className="font-light">{card.detail}</p>
+                          <p className="font-semibold text-brand-accent uppercase tracking-wider font-mono text-[10px]">Ponto focal da análise:</p>
+                          <p className="font-light text-brand-muted">{card.detail}</p>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
 
                   {/* Toggle trigger text */}
-                  <div className="pt-6 flex items-center justify-between text-xs font-mono tracking-wider uppercase font-medium mt-auto text-brand-accent">
-                    <span>{isActive ? "Recolher" : "Ver Insight Detalhado"}</span>
+                  <div className="pt-5 flex items-center justify-between text-xs font-mono tracking-wider uppercase font-medium mt-auto text-brand-accent">
+                    <span>{isActive ? "Recolher" : "Ver detalhe"}</span>
                     <ChevronDown size={14} className={`transform transition-transform duration-300 ${isActive ? "rotate-180" : ""}`} />
                   </div>
                 </motion.div>
@@ -408,7 +408,7 @@ export default function App() {
       </section>
 
       {/* DOBRA 5: AUTORIDADE (QUEM É A SERÁ) */}
-      <section className="relative py-24 md:py-32 bg-white" id="autoridade">
+      <section className="relative py-20 md:py-28 bg-white" id="autoridade">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -418,37 +418,37 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 space-y-8 text-left"
+              className="lg:col-span-7 space-y-6 text-left"
             >
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
-                Por que a Será, e não mais uma marca bonita de prateleira
+                Por que a Será, e não apenas mais uma marca de prateleira
               </h2>
 
-              <div className="space-y-6 text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed">
+              <div className="space-y-4 text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed">
                 <p>
-                  A Será nasceu da inquietação de sua fundadora, Madeleine, alemã e formada em administração, que se mudou para a Bahia para responder uma pergunta simples: por que os benefícios reais do cacau 100% ficaram presos a um nicho pequeno e caro?
+                  A Será nasceu da inquietação da fundadora Madeleine, alemã radicada na Bahia, ao constatar que o cacau puro de alta qualidade permanecia restrito a nichos caros e pouco acessíveis.
                 </p>
                 <p className="border-l-2 border-brand-accent/50 pl-6 my-4 italic text-brand-dark font-serif font-light">
-                  Trabalhamos com cacau 100% puro, sem adição de nada, single-origin, cultivado em sistema cabruca, com origem que você consegue rastrear e defender internamente.
+                  Trabalhamos exclusivamente com cacau 100% puro, single-origin, cultivado em sistema cabruca sob a sombra da Mata Atlântica — com origem que você rastreia lote a lote.
                 </p>
                 <p>
-                  É esse conjunto, produto honesto + história verdadeira + rastreabilidade, que faz o cliente perguntar, comentar e voltar. Porque no fim, a sua casa não vende produto: vende decisão e curadoria. E é exatamente por isso que a gente seleciona com quem trabalha.
+                  Produto honesto, história verdadeira e rastreabilidade: o tripé que gera curiosidade imediata e fidelidade de recompra na sua casa.
                 </p>
               </div>
 
               {/* Data numbers / credentials Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-brand-border/80">
                 <div className="space-y-1">
-                  <span className="block text-3xl font-serif text-brand-accent font-light">Tree-to-Bar</span>
+                  <span className="block text-2xl md:text-3xl font-serif text-brand-accent font-light">Tree-to-Bar</span>
                   <span className="block text-xs text-brand-muted font-sans">Rastreabilidade da árvore à xícara</span>
                 </div>
                 <div className="space-y-1">
-                  <span className="block text-3xl font-serif text-brand-accent font-light">100%</span>
-                  <span className="block text-xs text-brand-muted font-sans">Cabruca Sul da Bahia</span>
+                  <span className="block text-2xl md:text-3xl font-serif text-brand-accent font-light">100% Cabruca</span>
+                  <span className="block text-xs text-brand-muted font-sans">Conservação da Mata Atlântica</span>
                 </div>
                 <div className="space-y-1">
-                  <span className="block text-3xl font-serif text-brand-accent font-light">Zero</span>
-                  <span className="block text-xs text-brand-muted font-sans">Adição de açúcares ou conservantes</span>
+                  <span className="block text-2xl md:text-3xl font-serif text-brand-accent font-light">Zero Aditivos</span>
+                  <span className="block text-xs text-brand-muted font-sans">Sem açúcares ou conservantes</span>
                 </div>
               </div>
             </motion.div>
@@ -476,96 +476,15 @@ export default function App() {
         </div>
       </section>
 
-      {/* DOBRA 6: PARA QUEM É (QUALIFICAÇÃO + EXCLUSIVIDADE) */}
-      <section className="relative py-24 md:py-32 bg-brand-bg-sec border-t border-b border-brand-border/60" id="qualificacao">
-        <div className="max-w-7xl mx-auto px-6">
-          
-          {/* Header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-2xl mx-auto text-center space-y-4 mb-16"
-          >
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-dark leading-tight tracking-tight font-light">
-              Essa análise é para você se…
-            </h2>
-            <p className="text-brand-muted text-sm md:text-base font-sans">
-              Buscamos consistência e valores alinhados. Entenda se sua operação se encaixa no perfil da Será Cacau.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            
-            {/* YES Column */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white rounded-2xl border border-brand-accent/30 shadow-sm p-8 md:p-10 space-y-6 relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-brand-accent" />
-              <h3 className="font-serif text-2xl text-brand-dark font-medium flex items-center gap-2">
-                <CheckCircle2 size={22} className="text-brand-accent flex-shrink-0" />
-                <span>Sim, é ideal para o seu negócio se:</span>
-              </h3>
-              
-              <ul className="space-y-4 font-sans text-brand-muted text-base">
-                <li className="flex items-start gap-3">
-                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
-                  <span>Você tem um empório, concept store, cafeteria, hotel, restaurante ou distribuição e decide (ou influencia) o mix da casa.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
-                  <span>Você enxerga curadoria como diferencial competitivo, não compra \"o mais barato\".</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
-                  <span>Você quer entrar cedo na categoria de alternativas ao café, não correr atrás depois.</span>
-                </li>
-              </ul>
-            </motion.div>
-
-            {/* NO Column */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white/80 rounded-2xl border border-brand-border shadow-sm p-8 md:p-10 space-y-6 relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-neutral-300" />
-              <h3 className="font-serif text-2xl text-brand-dark font-medium flex items-center gap-2">
-                <AlertCircle size={22} className="text-brand-muted flex-shrink-0" />
-                <span>Não é para o seu momento se:</span>
-              </h3>
-              
-              <div className="space-y-4 text-brand-muted font-sans text-base leading-relaxed">
-                <p>
-                  Não é para você se busca o menor preço a qualquer custo, ou não tem interesse real em levar cacau 100% de verdade para a sua casa. Reservamos poucos horários por semana e preferimos usá-los com quem realmente quer construir isso.
-                </p>
-                <p className="text-xs text-brand-muted bg-brand-bg-sec/80 p-4 rounded-lg border border-brand-border/60 leading-relaxed">
-                  * Nossa produção é artesanal e cultivada em sistema cabruca controlado na Bahia. Prezamos pela parceria e integridade comercial em detrimento do volume desenfreado.
-                </p>
-              </div>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </section>
-
       {/* DOBRA 7: REVERSÃO DE RISCO + CTA FINAL */}
-      <section className="relative py-24 md:py-32 bg-white" id="agenda-final">
+      <section className="relative py-20 md:py-28 bg-white" id="agenda-final">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.96, y: 20 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-brand-bg-sec border border-brand-border rounded-3xl p-8 md:p-16 space-y-8 relative overflow-hidden shadow-sm"
+            className="bg-brand-bg-sec border border-brand-border rounded-3xl p-8 md:p-14 space-y-6 relative overflow-hidden shadow-sm"
           >
             
             <div className="space-y-3">
@@ -575,10 +494,10 @@ export default function App() {
             </div>
 
             <p className="text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed max-w-2xl mx-auto">
-              A análise é gratuita, e você não precisa decidir nada na reunião. No pior cenário, você sai com um diagnóstico honesto da sua prateleira e três materiais que pode usar do seu jeito. No melhor, encontra o produto que vai diferenciar a sua casa pelos próximos anos.
+              Uma conversa objetiva de 20 minutos. No pior cenário, você ganha um diagnóstico do potencial da categoria para o seu perfil. No melhor, descobre o produto de maior rotatividade e margem da sua prateleira.
             </p>
 
-            <div className="pt-4 space-y-4 max-w-md mx-auto">
+            <div className="pt-2 space-y-3 max-w-md mx-auto">
               <button
                 onClick={triggerCTA}
                 className="w-full py-4 px-8 bg-brand-dark text-white font-medium text-base rounded-full hover:bg-brand-accent transition-all duration-300 shadow-md cursor-pointer inline-flex items-center justify-center space-x-3"
@@ -588,7 +507,7 @@ export default function App() {
               </button>
               
               <p className="text-xs text-brand-muted font-sans">
-                Aplicação rápida · nosso time confirma o melhor horário com você
+                Aplicação rápida · retorno em até 24 horas úteis
               </p>
             </div>
 
@@ -600,48 +519,74 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-white border-t border-brand-border py-16 md:py-20 text-brand-muted">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-          
-          <div className="space-y-4 md:col-span-2">
-            <div className="flex flex-col items-start">
-              <img 
-                src={BRAND_LOGO} 
-                alt="Será Cacau" 
-                className="h-9 w-auto object-contain mb-2" 
-              />
-              <span className="font-sans text-[8px] tracking-[0.4em] text-brand-accent uppercase pl-0.5 font-medium">ORIGEM AGROFLORESTAL</span>
+      <footer className="bg-white border-t border-brand-border py-10 md:py-16 text-brand-muted">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+            
+            {/* Brand Column */}
+            <div className="md:col-span-6 space-y-3">
+              <div className="flex flex-col items-start">
+                <img 
+                  src={BRAND_LOGO} 
+                  alt="Será Cacau" 
+                  className="h-8 md:h-9 w-auto object-contain mb-1" 
+                />
+                <span className="font-sans text-[9px] tracking-[0.3em] text-brand-accent uppercase font-medium">ORIGEM AGROFLORESTAL</span>
+              </div>
+              <p className="text-xs sm:text-sm font-sans max-w-md leading-relaxed text-brand-muted">
+                Cacau 100% puro com rastreabilidade da árvore ao lote no Sul da Bahia. Feito para os empórios, cafeterias e marcas mais exigentes do Brasil.
+              </p>
+              <div className="inline-flex items-center gap-2 pt-1 text-[11px] text-brand-dark/80 font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                <span>Single Origin · Manejo Cabruca · Sul da Bahia</span>
+              </div>
             </div>
-            <p className="text-sm font-sans max-w-sm leading-relaxed">
-              Curadoria de cacau de alta pureza e origem controlada no Sul da Bahia. Criamos pontes entre a conservação agroflorestal da Mata Atlântica e os empórios mais sofisticados do Brasil.
-            </p>
-          </div>
 
-          <div className="space-y-4">
-            <span className="block font-serif text-brand-dark font-medium">Contatos</span>
-            <ul className="space-y-2 text-xs font-mono">
-              <li>parceiros@seracacau.com.br</li>
-              <li>+55 (73) 99823-1022</li>
-              <li>Ilhéus, Bahia · Brasil</li>
-            </ul>
-          </div>
+            {/* Contacts Column */}
+            <div className="md:col-span-6 space-y-3">
+              <span className="block font-serif text-sm md:text-base text-brand-dark font-medium">
+                Atendimento a Parceiros B2B
+              </span>
+              
+              <div className="space-y-2.5 font-sans text-xs sm:text-sm">
+                <a 
+                  href="mailto:parceiros@seracacau.com.br" 
+                  className="flex items-center gap-2.5 text-brand-dark hover:text-brand-accent transition-colors group"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-brand-bg-sec flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors flex-shrink-0">
+                    <Mail size={13} />
+                  </div>
+                  <span className="font-mono text-xs sm:text-sm truncate">parceiros@seracacau.com.br</span>
+                </a>
 
-          <div className="space-y-4">
-            <span className="block font-serif text-brand-dark font-medium">Garantia de Origem</span>
-            <p className="text-xs font-sans leading-relaxed">
-              Cacau 100% puro · Single Origin · Manejo Agroflorestal · Rastreabilidade do lote garantida de ponta a ponta.
-            </p>
-            <div className="pt-2 flex items-center gap-2 text-[10px] text-brand-accent font-mono uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-              <span>Bahia, Brasil</span>
+                <a 
+                  href="https://wa.me/5573998231022" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2.5 text-brand-dark hover:text-brand-accent transition-colors group"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-brand-bg-sec flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors flex-shrink-0">
+                    <Phone size={13} />
+                  </div>
+                  <span className="font-mono text-xs sm:text-sm">+55 (73) 99823-1022</span>
+                </a>
+
+                <div className="flex items-center gap-2.5 text-brand-muted">
+                  <div className="w-7 h-7 rounded-lg bg-brand-bg-sec/60 flex items-center justify-center text-brand-muted flex-shrink-0">
+                    <MapPin size={13} />
+                  </div>
+                  <span className="text-xs">Ilhéus, Bahia · Brasil</span>
+                </div>
+              </div>
             </div>
+
           </div>
 
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 pt-12 mt-12 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[10px] uppercase tracking-wider">
-          <span>&copy; {new Date().getFullYear()} Será Cacau Ltda. Todos os direitos reservados.</span>
-          <span className="hover:text-brand-dark transition-colors">Feito de forma justa e sustentável</span>
+          {/* Bottom Copyright */}
+          <div className="pt-6 mt-8 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-[11px] font-sans text-brand-muted/80">
+            <span>&copy; {new Date().getFullYear()} Será Cacau Ltda. Todos os direitos reservados.</span>
+            <span>Feito de forma justa e agroflorestal</span>
+          </div>
         </div>
       </footer>
 
